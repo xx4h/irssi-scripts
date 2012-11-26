@@ -37,8 +37,8 @@ use Irssi qw(command_bind);
 $VERSION = '0.14';
 %IRSSI = (
     authors     =>  'xx4h',
-    contact     =>  'xx4h.h4xx@gmail.com',
-    name        =>  'paste',
+    contact     =>  'melters@gmail.com',
+    name        =>  'gbpaste',
     description =>  'This script auto-paste'.
                     'your lines to gbpaste.org'.
                     'and posts the link to it'.
