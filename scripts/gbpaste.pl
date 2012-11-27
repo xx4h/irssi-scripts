@@ -29,6 +29,7 @@
 ######################################################################
 
 use strict;
+use Encode;
 use WWW::Mechanize;
 
 use vars qw($VERSION %IRSSI $PWD);
@@ -119,6 +120,7 @@ sub stop_paste {
 
     my $data;
     $data = join("\n", @_paste);
+    $data = decode("utf-8", $data);
     if ($data eq undef) {
     Irssi::print("there is nothing to paste!", MSGLEVEL_CRAP);
     return 0;
