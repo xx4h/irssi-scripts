@@ -82,7 +82,7 @@ sub paste {
 
 
 sub stop_paste {
-    my ($witem, $args) = @_;
+    my ($arg, $server, $witem, $args) = @_;
     my $output_message = Irssi::settings_get_str("gbpaste_output_message");
     my $language;
     my @arguments = split(' ', $args);
