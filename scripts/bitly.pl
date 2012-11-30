@@ -75,14 +75,14 @@ my ($data, $server, $witem) = @_;
     Irssi::print("Shortened URL: $shortened", MSGLEVEL_CRAP);
   }
   if (Irssi::settings_get_bool("bitly_public") == 1) {
-    Irssi::print("$output, $shortened", MSGLEVEL_PUBLIC);
+    $witem->command("/SAY $output $shortened");
   }
 
 
 }
 Irssi::settings_add_str("misc", "bitly_apikey", undef);
 Irssi::settings_add_str("misc", "bitly_login", undef);
-Irssi::settings_add_str("misc", "bitly_output", 'here teh url');
+Irssi::settings_add_str("misc", "bitly_output", 'here teh url:');
 Irssi::settings_add_bool("misc", "bitly_public", 0);
 
 Irssi::command_bind bitly => \&short;
