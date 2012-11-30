@@ -82,7 +82,7 @@ sub paste {
 
 
 sub stop_paste {
-    my ($args) = @_;
+    my ($witem, $args) = @_;
     my $output_message = Irssi::settings_get_str("gbpaste_output_message");
     my $language;
     my @arguments = split(' ', $args);
@@ -161,11 +161,11 @@ sub stop_paste {
     if (Irssi::settings_get_bool("gbpaste_output_public") == 0) {
     Irssi::print("gbpaste URL: $pasteurl", MSGLEVEL_CRAP);
     } else {
-    Irssi::print("$output_message, $pasteurl", MSGLEVEL_PUBLIC);
+    $witem->command("/SAY $output_message $pasteurl");
     }
 
 }
-Irssi::settings_add_str("misc", "gbpaste_output_message", "here teh url");
+Irssi::settings_add_str("misc", "gbpaste_output_message", "here teh url:");
 Irssi::settings_add_bool("misc", "gbpaste_output_public", 0);
 Irssi::settings_add_bool("misc", "gbpaste_private_data", 0);
 Irssi::settings_add_bool("misc", "gbpaste_private_nick", 0);
